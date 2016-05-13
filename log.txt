@@ -1,0 +1,75 @@
+
+C:\Work\Wipro>call azure account set "Suren's Playground" 
+info:    Executing command account set
+info:    Setting subscription to "Suren's Playground" with id "fa7b97f7-10eb-4e4e-bc2b-c70d1413932a".
+info:    Changes saved
+info:    account set command OK
+
+C:\Work\Wipro>call azure config mode arm 
+info:    New mode is arm
+
+C:\Work\Wipro>call azure group create -n "WiproRG" -l "japaneast" 
+info:    Executing command group create
+info:    Getting resource group WiproRG
+info:    Creating resource group WiproRG
+info:    Created resource group WiproRG
+data:    Id:                  /subscriptions/fa7b97f7-10eb-4e4e-bc2b-c70d1413932a/resourceGroups/WiproRG
+data:    Name:                WiproRG
+data:    Location:            japaneast
+data:    Provisioning State:  Succeeded
+data:    Tags: null
+data:    
+info:    group create command OK
+
+C:\Work\Wipro>call azure group create -n "WiproRG" -l "japaneast" 
+info:    Executing command group create
+info:    Getting resource group WiproRG
+info:    Updating resource group WiproRG
+info:    Updated resource group WiproRG
+data:    Id:                  /subscriptions/fa7b97f7-10eb-4e4e-bc2b-c70d1413932a/resourceGroups/WiproRG
+data:    Name:                WiproRG
+data:    Location:            japaneast
+data:    Provisioning State:  Succeeded
+data:    Tags: null
+data:    
+info:    group create command OK
+
+C:\Work\Wipro>call azure network vnet create -g "WiproRG" -n "WiproVNET" -l "japaneast" 
+info:    Executing command network vnet create
+info:    Looking up virtual network "WiproVNET"
+info:    Creating virtual network "WiproVNET"
+info:    Loading virtual network state
+data:    Id                              : /subscriptions/fa7b97f7-10eb-4e4e-bc2b-c70d1413932a/resourceGroups/WiproRG/providers/Microsoft.Network/virtualNetworks/WiproVNET
+data:    Name                            : WiproVNET
+data:    Type                            : Microsoft.Network/virtualNetworks
+data:    Location                        : japaneast
+data:    ProvisioningState               : Succeeded
+data:    Address prefixes:
+data:      10.0.0.0/8
+info:    network vnet create command OK
+
+C:\Work\Wipro>call azure network vnet subnet create -e "WiproVNET" -g "WiproRG" -n ComputeSubnet -a 10.1.0.0/16 
+info:    Executing command network vnet subnet create
+info:    Looking up the subnet "ComputeSubnet"
+info:    Creating subnet "ComputeSubnet"
+info:    Looking up the subnet "ComputeSubnet"
+data:    Id                              : /subscriptions/fa7b97f7-10eb-4e4e-bc2b-c70d1413932a/resourceGroups/WiproRG/providers/Microsoft.Network/virtualNetworks/WiproVNET/subnets/ComputeSubnet
+data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+data:    ProvisioningState               : Succeeded
+data:    Name                            : ComputeSubnet
+data:    Address prefix                  : 10.1.0.0/16
+data:    
+info:    network vnet subnet create command OK
+
+C:\Work\Wipro>call azure network vnet subnet create -e "WiproVNET" -g "WiproRG" -n LustreSubnet -a 10.2.0.0/16 
+info:    Executing command network vnet subnet create
+info:    Looking up the subnet "LustreSubnet"
+info:    Creating subnet "LustreSubnet"
+info:    Looking up the subnet "LustreSubnet"
+data:    Id                              : /subscriptions/fa7b97f7-10eb-4e4e-bc2b-c70d1413932a/resourceGroups/WiproRG/providers/Microsoft.Network/virtualNetworks/WiproVNET/subnets/LustreSubnet
+data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+data:    ProvisioningState               : Succeeded
+data:    Name                            : LustreSubnet
+data:    Address prefix                  : 10.2.0.0/16
+data:    
+info:    network vnet subnet create command OK
